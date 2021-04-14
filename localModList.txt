@@ -1,0 +1,13 @@
+# Put all your mod id (Steam Workshop 10-digit ID)
+# You can put all format you want (workshop url, id only, with comment) examples :
+# https://steamcommunity.com/sharedfiles/filedetails/?id=~1559212036
+# ~1559212036 it's CF DayZ Mod
+# example 3 : ~1559212036, seriously, put all the text you want :D
+
+### Standard mods ###
+CF = 1559212036
+Community online tools = https://steamcommunity.com/sharedfiles/filedetails/?id=1564026768
+
+### Weapons mods ###
+# You can put your mod inline or not...
+~1559317235 (WeaponReduxPack => WaW ! :D) // ~1711179264 (BulletStacks++ a helpful mod) // etc etc...

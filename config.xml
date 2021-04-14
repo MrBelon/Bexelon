@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<Settings>
+		<Profile>ServerProfile</Profile>		<!-- The Server Profile you want to use (ex: ServerName) -->
+		<CPU>4</CPU>							<!-- Number of CPU you want to use for your server -->
+		<BattleEye>False</BattleEye>					<!-- Enable BattleEye Anti Cheat ? -->
+		<DeleteOldLogs>True</DeleteOldLogs>					<!-- Delete old .log files when server restart ? -->
+	</Settings>
+	<Path>
+		<SteamCMD>C:\steam</SteamCMD>			<!-- SteamCMD Path (ex: C:\Steam) -->
+		<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> 	<!-- Config path to Workshop downloading (ex: C:\Steam\Workshop) -->
+		<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Config path to Game Server (ex: C:\Steam\steamapps\common\DayzServer) -->
+	</Path>
+	<Game>
+		<UseLocalModList>True</UseLocalModList>
+		<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
+		<GameId>221100</GameId>						<!-- Set Steam Game ID : 221100 DayZ -->
+		<Branch>223350</Branch>						<!-- Set Steam Server ID : 223350 DayZServer -->
+	</Game>
+	<!-- Enter your Steam Credentials : For security reasons it is recommended that you create a new Steam account just for your dedicated servers -->
+	<Credentials> 
+		<Username>username</Username>		
+		<Password>password</Password>
+	</Credentials>
+	<Hooks>
+		<!--
+		# In a future version
+		<CustomName>
+			<Url>https://discord.com/api/webhooks/_WEBHOOK_SECRET_KEY</Url>
+			<Content>The server will open in a few minutes !</Content>
+		</CustomName>
+		-->
+	</Hooks>
+</Config>
