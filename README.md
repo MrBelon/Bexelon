@@ -45,7 +45,6 @@ Configure your server paths (**important**) :
 ```xml
 <Path>
 	<SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
-	<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> <!-- Path to Workshop downloads (ex: C:\...\workshop\content\221100) -->
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
@@ -54,15 +53,12 @@ Configure your server paths (**important**) :
 BE AWARE! The script files cannot be stored in the Root Location Path of the DayZServer Directory, Unless They are stored in a Subfile of the DayZServer Directory.
 
 >	DayZServer Root Location Path ----> C:\steam\steamapps\common\DayZServer
->
 >	DayZServer Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
 
 
 Make sure your Path does not end with a Back Slash : "\\". 
 >	Good exemple --> C:\User\Desktop\File\Subfile
->
->	Bad exemple ---> C:\User\Desktop\File\
->     
+>	Bad exemple ---> C:\User\Desktop\File\ 
 >	Good exemple --> C:\User\Desktop\File
 
 
@@ -125,7 +121,7 @@ Your DayZ steam server will check update at each restart. The update will be ins
 
 ## Mod installation
 
-Add a new mod into the **LocalModList.txt** or into your Steam Workshop Collection (it depends on the _useLocalModList_ parameter), and start (or restart) the script. The new mods will be installed on your DayZ server folder, and the .keys files will be pushed into the keys folder automaticly.
+Add a new mod into the **LocalModList.txt** or into your Steam Workshop Collection (it depends on the `useLocalModList` parameter), and start (or restart) the script. The new mods will be installed on your DayZ server folder, and the .keys files will be pushed into the keys folder automaticly.
 
 ## Mod update
 
