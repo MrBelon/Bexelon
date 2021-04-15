@@ -20,7 +20,7 @@ Bexelon was created with this techonlogies :
 
 Bexelon requires [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1) 5+ to work
 
-Start Powershell and clone this repo.
+Start Powershell and clone this repo (you need to have [Git](https://git-scm.com/)).
 
 ```sh
 git clone https://github.com/Firebels/Bexelon.git
