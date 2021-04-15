@@ -1,11 +1,11 @@
 # Bexelon ![Bexelon Logo](https://i.ibb.co/GWhXyMK/Bexelon-50-no-bg.png)
 ## _A script to make your DayZ server installation better_
 
-Bexelon is a Powershell script created to install your DayZ server fully automaticly. You just have to configure one file and let the script make your installation.
+Bexelon is a Powershell script created to install your DayZ server fully automatically. You just have one file to configure, you can then let the script make your installation.
 
 ## Features
 
-- Install a new DayZ server or use it into an existing server
+- Install a new DayZ server or add script to an existing server
 - Choose local mod list or online Steam mod Collection (from Workshop)
 - Enable or disable Battleye Anti-Cheat
 - Auto-update mods from workshop and DayZ server when the server starts
@@ -49,6 +49,22 @@ Configure your server paths (**important**) :
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
+
+
+BE AWARE! The script files cannot be stored in the Root Location Path of the DayZServer Directory, Unless They are stored in a Subfile of the DayZServer Directory.
+
+>	DayZServer Root Location Path ----> C:\steam\steamapps\common\DayZServer
+>
+>	DayZServer Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
+
+
+Make sure your Path does not end with a Back Slash : "\\". 
+>	Good exemple --> C:\User\Desktop\File\Subfile
+>
+>	Bad exemple ---> C:\User\Desktop\File\
+>     
+>	Good exemple --> C:\User\Desktop\File
+
 
 Configure your mods source :
 
