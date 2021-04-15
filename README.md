@@ -1,14 +1,14 @@
 # Bexelon ![Bexelon Logo](https://i.ibb.co/GWhXyMK/Bexelon-50-no-bg.png)
 ## _A script to make your DayZ server installation better_
 
-Bexelon is a Powershell script created to install your DayZ server fully automaticly. You just have to configure one file and let the script make your installation.
+Bexelon is a Powershell script created to install your DayZ server and auto-updates your mods fully automatically. You just have one file to configure, you can then let the script make your installation.
 
 ## Features
 
-- Install a new DayZ server or use it into an existing server
-- Choose local mod list or online Steam mod Collection (from Workshop)
+- Install a new DayZ server or add Bexelon to an existing server
+- Choose between your own local mod list or an online Steam mod Collection (from Steam Workshop)
 - Enable or disable Battleye Anti-Cheat
-- Auto-update mods from workshop and DayZ server when the server starts
+- Auto-update mods from Steam Workshop and DayZ Server when the the script is executed and at every server reboot
 
 ## Technologies
 
@@ -35,7 +35,7 @@ Configure your server profile name (you can leave the default setting) :
 ```xml
 <Settings>
 	<Profile>ServerProfile</Profile>		<!-- The Server Profile you want to use (ex: ServerName) -->
-	<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti-Cheat ? [True/False] -->
+	<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti-Cheat [True/False]? -->
 </Settings>
 ```
 > To set `BattleEye` to **true**, you have to put the BattleEye folder into your server dir (Path/Server config)
@@ -45,17 +45,34 @@ Configure your server paths (**important**) :
 ```xml
 <Path>
 	<SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
+	<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> <!-- Path to Workshop downloads (ex: C:\...\workshop\content\221100) -->
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
 
+
+BE AWARE! The script files cannot be stored in the Root Location Path of the DayZServer Directory, Unless They are stored in a Subfile of the DayZServer Directory.
+
+>	DayZServer Root Location Path ----> C:\steam\steamapps\common\DayZServer
+>
+>	DayZServer Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
+
+
+Make sure your Path does not end with a Back Slash : "\\". 
+>	Good exemple --> C:\User\Desktop\File\Subfile
+>
+>	Bad exemple ---> C:\User\Desktop\File\
+>     
+>	Good exemple --> C:\User\Desktop\File
+
+
 Configure your mods source :
 
 ```xml
-<Mods>
+<Game>
 	<UseLocalModList>True</UseLocalModList>		<!-- Set True to use LocalModList.txt -->
 	<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
-</Mods>
+</Game>
 ```
 > If you want a Vanilla server without mods, set `UseLocalModList` to **True** and delete all the **LocalModList.txt** content.
 > Set `UseLocalModList` to **True** for using the **LocalModList.txt** mod list
@@ -83,7 +100,7 @@ Ignore this mod: ~1564026799 (ignored)
 > You can put **EVERYTHING** you want in this file. As long as the file contains a workshop mod ID (10-digit), the script will detect it, **no matter where it is in the file!**
 To comment (and therefore ignore) a mod, add `~` in front of it.
 
-## First server installation
+## Installation Zero (Create a new server and go back to square one)
 
 > You can use Bexelon on an existing DayZ server, skip this section and go to the next section.
 
