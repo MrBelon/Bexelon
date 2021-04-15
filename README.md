@@ -71,7 +71,7 @@ Configure your mods source :
 > Enter your Steam credentials : **For security reasons it is recommended that you create a new Steam account just for your dedicated servers**.
 
 ## The LocalModList.txt
-If you have enabled the `UseLocalModList` parameter, you can configure **LocalModList.txt** now. Use the format you want.
+If you have enabled the `UseLocalModList` parameter, you can configure **LocalModList.txt** now. Use the format you want. You can find this file at the root of the script, if not exist create one.
 
 Example :
 ```
