@@ -14,9 +14,9 @@ Bexelon is a Powershell script created to install your DayZ server and auto-upda
 
 Bexelon was created with this techonlogies :
 
-- [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) - Cross-platform task automation solution
-- [Git](https://git-scm.com/) - 
-- [steamcmd.exe](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD)
+- [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) - Terminal
+- [Git](https://git-scm.com/) - Git version control system
+- [steamcmd.exe](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD) - The Steam Console Client
 
 ## Installation
 
