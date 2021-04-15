@@ -46,7 +46,7 @@ Configure your server paths (**important**) :
 
 ```xml
 <Path>
-    <SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
+	<SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
 	<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> 	<!-- Path to Workshop downloads (ex: C:\...\workshop\content\221100) -->
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
@@ -125,5 +125,6 @@ You have to configure your mods yourself by entering into your server profile fo
 ## License
 
 MIT 
+
 **Free Software, Hell Yeah!**
 
