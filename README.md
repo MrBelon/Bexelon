@@ -1,6 +1,5 @@
-# Bexelon
+# Bexelon ![alt text](https://i.ibb.co/GWhXyMK/Bexelon-50-no-bg.png "Bexelon Logo")
 ## _A script to make your DayZ server installation better_
-![alt text](https://i.ibb.co/GWhXyMK/Bexelon-50-no-bg.png "Bexelon Logo")
 
 Bexelon is a Powershell script created to install your DayZ server fully automaticly. You just have to configure one file and let the script make your installation.
 
