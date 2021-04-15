@@ -12,15 +12,15 @@
 		<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Config path to Game Server (ex: C:\Steam\steamapps\common\DayzServer) -->
 	</Path>
 	<Game>
-		<UseLocalModList>True</UseLocalModList>
+		<UseLocalModList>False</UseLocalModList>
 		<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
 		<GameId>221100</GameId>						<!-- Set Steam Game ID : 221100 DayZ -->
 		<Branch>223350</Branch>						<!-- Set Steam Server ID : 223350 DayZServer -->
 	</Game>
 	<!-- Enter your Steam Credentials : For security reasons it is recommended that you create a new Steam account just for your dedicated servers -->
 	<Credentials> 
-		<Username>username</Username>		
-		<Password>password</Password>
+		<Username>hollcel_servers</Username>		
+		<Password>vD4GzQhxxMdrfA4pHs4cn8TCJqdhFrz3</Password>
 	</Credentials>
 	<Hooks>
 		<!--

@@ -71,7 +71,7 @@ function dlMods
 {
 	$Collection | ForEach-Object { $WS_Collection = "$($WS_Collection) +workshop_download_item $($Config.Game.GameId) $($_.publishedfileid) " }
 		
-	Start-Process -FilePath "$($Config.Path.SteamCMD)\steamcmd.exe" -ArgumentList "+login $($Config.Credentials.Username) $($Config.Credentials.Password) +app_update $($Config.Game.Branch) $($WS_Collection) validate +quit"
+	Start-Process -FilePath "$($Config.Path.SteamCMD)\steamcmd.exe" -ArgumentList "+login $($Config.Credentials.Username) $($Config.Credentials.Password) +force_install_dir $($Config.Path.Server) +app_update $($Config.Game.Branch) $($WS_Collection) validate +quit"
 	
 	Write-Output "Steam is downloading mods..." >> $LogFile
 
