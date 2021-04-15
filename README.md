@@ -58,12 +58,15 @@ Configure your server paths (**important**) :
 BE AWARE! The script files cannot be stored in the Root Location Path of the DayZServer Directory, Unless They are stored in a Subfile of the DayZServer Directory.
 
 >	DayZServer Root Location Path ----> C:\steam\steamapps\common\DayZServer
+>	
 >	DayZServer Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
 
 
 Make sure your Path does not end with a Back Slash : "\\". 
 >	Good exemple --> C:\User\Desktop\File\Subfile
+>	
 >	Bad exemple ---> C:\User\Desktop\File\ 
+>	
 >	Good exemple --> C:\User\Desktop\File
 
 
