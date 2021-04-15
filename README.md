@@ -55,11 +55,11 @@ Configure your server paths (**important**) :
 > You can download steamcmd [here](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip).
 
 
-BE AWARE! The script files cannot be stored in the Root Location Path of the DayZServer Directory, Unless They are stored in a Subfile of the DayZServer Directory.
+BE AWARE! The script files cannot be stored in the Root Location Path of the DayZ server folder that you have created, unless they are stored in a subfile of the DayZ server folder.
 
->	DayZServer Root Location Path ----> C:\steam\steamapps\common\DayZServer
+>	DayZ server Root Location Path ----> C:\steam\steamapps\common\DayZServer
 >	
->	DayZServer Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
+>	DayZ server Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
 
 
 Make sure your Path does not end with a Back Slash : "\\". 
