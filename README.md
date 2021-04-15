@@ -20,7 +20,7 @@ Bexelon was created with this techonlogies :
 
 Bexelon requires [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) 5 or higher to work
 
-If you want to install Bexelon for a new server, create a folder where you want to create your server, start Powershell and clone this repo into (you need to have [Git](https://git-scm.com/)).
+If you want to install Bexelon for a new server, create a folder where you want to create your server, start Powershell and clone this repo into (you need to have [Git](https://git-scm.com/)). You can give it the name of the server you want to create.
 
 If you want to install Bexelon in an existing server, just clone the repo at the root of your server.
 
