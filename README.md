@@ -12,7 +12,7 @@ Bexelon is a Powershell script created to install your DayZ server and auto-upda
 
 ## Prerequisites
 
-Bexelon was created with this techonlogies :
+You can find the necessary tools for the Bexelon script down below :
 
 - [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) - Terminal
 - [Git](https://git-scm.com/) - Git version control system
