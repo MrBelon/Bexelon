@@ -1,5 +1,5 @@
 #################################################################
-# Project	:  Bexelon (https://github.com/Firebels/FireDayZ)	#
+# Project	:  Bexelon (https://github.com/Firebels/Bexelon)	#
 # Version	:  Beta 1.5.1 										#
 # Developer :  Robin Belon (belon.rbn@gmail.com)				#
 # Server	:  DayZ (https://www.survivalistes.fr)				#
@@ -11,7 +11,9 @@ $host.UI.RawUI.WindowTitle = "Bexelon - Running..."
 
 [XML]$_xml_config = Get-Content config.xml # Get the config
 	 $Config = $_xml_config.Config
-	 $LogFile = "$($Config.Path.Server)\logs\Bexelon.log"
+	 $LogFile = "./Bexelon.log"
+	 $WorkshopPath = "$($Config.Path.Server)\steamapps\workshop\content\221100"
+	 $GameBranch = 223350
 
 function startServer # Start the server
 {
@@ -49,17 +51,19 @@ function copyFolders
 	Write-Output "Copying Workshop files... (This operation may take a several minutes)" >> $LogFile
 
 	$Collection | ForEach-Object {
-		$modName = $(Get-Content -Path "$($Config.Path.Workshop)\$($_.publishedfileid)\meta.cpp" | Select-String 'name = "(.+)";' -AllMatches).Matches.Groups[1].Value -Replace '[@#?\{ ]','_' -Replace '[\[\]]',''
+		$modName = $(Get-Content -Path "$($WorkshopPath)\$($_.publishedfileid)\meta.cpp" | Select-String 'name = "(.+)";' -AllMatches).Matches.Groups[1].Value -Replace '[@#?\{ ]','_' -Replace '[\[\]]',''
 		
-		if(!$(Test-Path "$($Config.Path.Server)\`@$($modName)\meta.cpp" -PathType Leaf)) { $exists = ""	}
-		if(Compare-Object -ReferenceObject $(Get-Content "$($Config.Path.Workshop)\$($_.publishedfileid)\meta.cpp") -DifferenceObject $(Get-Content "$($Config.Path.Server)\`@$($modName)\meta.cpp" -ErrorAction SilentlyContinue)) { $exists = "*" }
-
-		Copy-Item -Path "$($Config.Path.Workshop)\$($_.publishedfileid)\$($exists)" -Destination "$($Config.Path.Server)\`@$($modName)\" -Recurse -Force -PassThru
+		if(!$(Test-Path "$($Config.Path.Server)\`@$($modName)\meta.cpp" -PathType Leaf)) { 
+			Copy-Item -Path "$($WorkshopPath)\$($_.publishedfileid)\" -Destination "$($Config.Path.Server)\`@$($modName)\" -Recurse -Force -PassThru
+		}
+		if(Compare-Object -ReferenceObject $(Get-Content "$($WorkshopPath)\$($_.publishedfileid)\meta.cpp") -DifferenceObject $(Get-Content "$($Config.Path.Server)\`@$($modName)\meta.cpp" -ErrorAction SilentlyContinue)) { 
+			Copy-Item -Path "$($WorkshopPath)\$($_.publishedfileid)\" -Destination "$($Config.Path.Server)\`@$($modName)\" -Recurse -Force -PassThru
+		}
 
 		$ModList += $modName
 	} # Copy Workshop downloaded content
 	
-	$Collection | ForEach-Object { Get-ChildItem -Path "$($Config.Path.Workshop)\$($_.publishedfileid)" -Filter *.bikey -Recurse -File | Copy-Item -Destination "$($Config.Path.Server)\keys\" -PassThru } #Copy Keys
+	$Collection | ForEach-Object { Get-ChildItem -Path "$($WorkshopPath)\$($_.publishedfileid)" -Filter *.bikey -Recurse -File | Copy-Item -Destination "$($Config.Path.Server)\keys\" -PassThru } #Copy Keys
 	
 	Write-Host "Loaded mods: " -ForegroundColor Green -NoNewline; Write-Host $($ModList -join ', ') -ForegroundColor Blue
 	Write-Output "Loaded $($ModList.Length) mod(s): $($ModList -join ', ')" >> $LogFile
@@ -69,9 +73,9 @@ function copyFolders
 
 function dlMods 
 {
-	$Collection | ForEach-Object { $WS_Collection = "$($WS_Collection) +workshop_download_item $($Config.Game.GameId) $($_.publishedfileid) " }
+	$Collection | ForEach-Object { $WS_Collection = "$($WS_Collection) +workshop_download_item 221100 $($_.publishedfileid) " }
 		
-	Start-Process -FilePath "$($Config.Path.SteamCMD)\steamcmd.exe" -ArgumentList "+login $($Config.Credentials.Username) $($Config.Credentials.Password) +force_install_dir $($Config.Path.Server) +app_update $($Config.Game.Branch) $($WS_Collection) validate +quit"
+	Start-Process -FilePath "$($Config.Path.SteamCMD)\steamcmd.exe" -ArgumentList "+login $($Config.Credentials.Username) $($Config.Credentials.Password) +force_install_dir $($Config.Path.Server) +app_update $($GameBranch) $($WS_Collection) validate +quit"
 	
 	Write-Output "Steam is downloading mods..." >> $LogFile
 
@@ -89,7 +93,7 @@ function dlMods
 
 function getCollection # Get the modlist from the API (Steam Workshop Collection)
 {
-	if($Config.Game.UseLocalModList -eq 'True') {
+	if($Config.Mods.UseLocalModList -eq 'True') {
 		# Get collection from local file
 		$Collection = @()
 		$($(Get-Content .\localModList.txt) | Select-String '[^~]\d{10}' -AllMatches).Matches | ForEach-Object {
@@ -99,7 +103,7 @@ function getCollection # Get the modlist from the API (Steam Workshop Collection
 	} else {
 		# Get collection from SteamAPI
 		$PostParams = @{ collectioncount = 1;
-			'publishedfileids[0]' = $Config.Game.CollectionId }
+			'publishedfileids[0]' = $Config.Mods.CollectionId }
 		$ApiCollection = Invoke-WebRequest -Uri 'https://api.steampowered.com/ISteamRemoteStorage/GetCollectionDetails/v0001/?format=json' -Method POST -Body $PostParams
 		$Collection = $($ApiCollection.Content | ConvertFrom-Json).response.collectiondetails.children 
 		Write-Output "Getting collection from Steam API, $($Collection.Length) mods" >> $LogFile
@@ -110,11 +114,6 @@ function getCollection # Get the modlist from the API (Steam Workshop Collection
 
 function checkServer # The first step, check if the server is running
 {
-	if(!$(Test-Path $LogFile -PathType Leaf)) # Check if .log file exists
-	{
-		New-Item -ItemType "file" -Path $LogFile # If not, create .log file
-	}
-
 	if(!$(Get-Process -name DayZServer_x64 -ErrorAction SilentlyContinue)) # Check if server is running
 	{
 		Write-Output "Server not detected! Initializing server..." >> $LogFile
@@ -130,4 +129,10 @@ function checkServer # The first step, check if the server is running
 }
 
 Write-Output "Starting DayZ Bexelon script" > $LogFile
+
+if(!$(Test-Path $LogFile -PathType Leaf)) # Check if .log file exists
+{
+	New-Item -ItemType "file" -Path $LogFile # If not, create .log file
+}
+
 checkServer
