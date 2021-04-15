@@ -35,7 +35,7 @@ Configure your server profile name (you can leave the default setting) :
 ```xml
 <Settings>
 	<Profile>ServerProfile</Profile>		<!-- The Server Profile you want to use (ex: ServerName) -->
-	<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti-Cheat [True/False]? -->
+	<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti-Cheat ? [True/False] -->
 </Settings>
 ```
 > To set `BattleEye` to **true**, you have to put the BattleEye folder into your server dir (Path/Server config)
@@ -45,7 +45,6 @@ Configure your server paths (**important**) :
 ```xml
 <Path>
 	<SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
-	<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> <!-- Path to Workshop downloads (ex: C:\...\workshop\content\221100) -->
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
@@ -53,10 +52,10 @@ Configure your server paths (**important**) :
 Configure your mods source :
 
 ```xml
-<Game>
+<Mods>
 	<UseLocalModList>True</UseLocalModList>		<!-- Set True to use LocalModList.txt -->
 	<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
-</Game>
+</Mods>
 ```
 > If you want a Vanilla server without mods, set `UseLocalModList` to **True** and delete all the **LocalModList.txt** content.
 > Set `UseLocalModList` to **True** for using the **LocalModList.txt** mod list
@@ -125,5 +124,3 @@ You have to configure your mods yourself by entering into your server profile fo
 MIT 
 
 **Free Software, Hell Yeah!**
-
->>>>>>> df55a7af721c676bab96a075c9ca54ed3e279a08
