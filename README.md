@@ -1,14 +1,14 @@
 # Bexelon ![Bexelon Logo](https://i.ibb.co/GWhXyMK/Bexelon-50-no-bg.png)
 ## _A script to make your DayZ server installation better_
 
-Bexelon is a Powershell script created to install your DayZ server fully automatically. You just have one file to configure, you can then let the script make your installation.
+Bexelon is a Powershell script created to install your DayZ server and Auto-update your mods fully automatically. You just have one file to configure, you can then let the script make your installation.
 
 ## Features
 
-- Install a new DayZ server or add script to an existing server
-- Choose local mod list or online Steam mod Collection (from Workshop)
+- Install a new DayZ server or add this script to an existing server
+- Choose between your own local mod list or an online Steam mod Collection (from Steam Workshop)
 - Enable or disable Battleye Anti-Cheat
-- Auto-update mods from workshop and DayZ server when the server starts
+- Auto-update mods from Steam Workshop and DayZ Server when the the script is executed and at every server reboot
 
 ## Technologies
 
@@ -100,7 +100,7 @@ Ignore this mod: ~1564026799 (ignored)
 > You can put **EVERYTHING** you want in this file. As long as the file contains a workshop mod ID (10-digit), the script will detect it, **no matter where it is in the file!**
 To comment (and therefore ignore) a mod, add `~` in front of it.
 
-## First server installation
+## Installation Zero (Create a new server and go back to square one)
 
 > You can use Bexelon on an existing DayZ server, skip this section and go to the next section.
 
