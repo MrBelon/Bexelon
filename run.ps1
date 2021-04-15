@@ -22,8 +22,6 @@ function startServer # Start the server
 	Set-Location -Path $Config.Path.Server
 	Start-Process -FilePath "$($Config.Path.Server)\DayZServer_x64.exe" -ArgumentList "-instanceId=1 -config=serverDZ.cfg -profiles=$($Config.Settings.Profile) -port=2302 `"-mod=@$($ModList -join ';@')`" -cpuCount=$($Config.Settings.CPU) -noFilePatching -dologs -adminlog -freezecheck"
 
-	30..0 | ForEach-Object { Write-Output "Server initializing, please wait $($_) sec. before launching BattleEye-Extended-Controls..."; Start-Sleep -Seconds 1 }
-
 	if($Config.Settings.BattleEye -eq 'True') { startBec } checkServer
 }
 
@@ -35,6 +33,8 @@ function sendHooks
 
 function startBec # Start BEC if enabled
 {
+	30..0 | ForEach-Object { Write-Output "Server initializing, please wait $($_) sec. before launching BattleEye-Extended-Controls..."; Start-Sleep -Seconds 1 }
+
 	if($(Test-Path "$($Config.Path.Server)\battleye\Config\Config.cfg" -PathType Leaf))
 	{
 		Write-Output "Starting BattleEye Anti-Cheat" >> $LogFile
@@ -122,8 +122,9 @@ function checkServer # The first step, check if the server is running
 		getCollection # Not running, get mod list
 	}
 
-	if(!$(Get-Process -name Bec -ErrorAction SilentlyContinue)) { startBec } # Server running, check BEC
+	if(!$(Get-Process -name Bec -ErrorAction SilentlyContinue) -And $($Config.Settings.BattleEye -eq 'True')) { startBec } # Server running, check BEC
 
+	Write-Host "All is alright !" -ForegroundColor green
 	30..0 | ForEach { "Server started. Verification in $_"; Start-Sleep -Seconds 1 } # Verification every 30 sec
 	checkServer
 }

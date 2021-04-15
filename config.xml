@@ -7,7 +7,7 @@
 	</Settings>
 	<Path>
 		<SteamCMD>C:\steam</SteamCMD>			<!-- SteamCMD Path (ex: C:\Steam) -->
-		<Server>C:\servers\dayz</Server>	<!-- Config path to Game Server (ex: C:\Steam\steamapps\common\DayzServer) -->
+		<Server>C:\Servers\DayZ</Server>	<!-- Config path to Game Server (ex: C:\Steam\steamapps\common\DayzServer) -->
 	</Path>
 	<Mods>
 		<UseLocalModList>True</UseLocalModList>	<!-- Set True to use local mod list (LocalModList.txt) -->
