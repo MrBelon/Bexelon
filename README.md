@@ -62,7 +62,7 @@ BE AWARE! The script files cannot be stored in the Root Location Path of the Day
 >	DayZ server Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
 
 
-Make sure your Path does not end with a Back Slash : "\\". 
+Make sure your Path does not end with a Back Slash : `\`. 
 >	Good exemple --> C:\User\Desktop\File\Subfile
 >	
 >	Bad exemple ---> C:\User\Desktop\File\ 
