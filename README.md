@@ -10,12 +10,12 @@ Bexelon is a Powershell script created to install your DayZ server and auto-upda
 - Enable or disable Battleye Anti-Cheat
 - Auto-update mods from Steam Workshop and DayZ Server when the the script is executed and at every server reboot
 
-## Prerequies
+## Prerequisite
 
 Bexelon was created with this techonlogies :
 
 - [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) - Cross-platform task automation solution
-- [Git](https://git-scm.com/)
+- [Git](https://git-scm.com/) - 
 - [steamcmd.exe](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD)
 
 ## Installation
