@@ -47,7 +47,7 @@ Configure your server paths (**important**) :
 ```xml
 <Path>
 	<SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
-	<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> 	<!-- Path to Workshop downloads (ex: C:\...\workshop\content\221100) -->
+	<Workshop>C:\steam\steamapps\workshop\content\221100</Workshop> <!-- Path to Workshop downloads (ex: C:\...\workshop\content\221100) -->
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
@@ -56,7 +56,7 @@ Configure your mods source :
 
 ```xml
 <Game>
-	<UseLocalModList>True</UseLocalModList>     <!-- Set True to use LocalModList.txt -->
+	<UseLocalModList>True</UseLocalModList>		<!-- Set True to use LocalModList.txt -->
 	<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
 </Game>
 ```
@@ -66,8 +66,8 @@ Configure your mods source :
 
 ```xml
 <Credentials> 
-	<Username>username</Username>		
-	<Password>password</Password>
+	<Username>username</Username>		<!-- Set steam username -->
+	<Password>password</Password>		<!-- Set steam password -->
 </Credentials>
 ```
 > Enter your Steam credentials : **For security reasons it is recommended that you create a new Steam account just for your dedicated servers**.
