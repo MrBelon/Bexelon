@@ -20,7 +20,8 @@ Bexelon was created with this techonlogies :
 
 Bexelon requires [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) 5 or higher to work
 
-Start Powershell and clone this repo (you need to have [Git](https://git-scm.com/)).
+If you want to install Bexelon for a new server, create a folder where you want to create your server, start Powershell and clone this repo into (you need to have [Git](https://git-scm.com/)).
+If you want to install Bexelon in an existing server, just clone the repo at the root of your server.
 
 ```sh
 git clone https://github.com/Firebels/Bexelon.git
@@ -48,6 +49,7 @@ Configure your server paths (**important**) :
 	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
+> You can download steamcmd [here](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip)
 
 
 BE AWARE! The script files cannot be stored in the Root Location Path of the DayZServer Directory, Unless They are stored in a Subfile of the DayZServer Directory.
