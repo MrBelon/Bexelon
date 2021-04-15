@@ -62,7 +62,7 @@ Configure your mods source :
 ```
 > If you want a Vanilla server without mods, set `UseLocalModList` to **True** and delete all the **LocalModList.txt** content.
 > Set `UseLocalModList` to **True** for using the **LocalModList.txt** mod list
-> The  `CollectionId ` setting is used when `UseLocalModList ` is set to **False**.
+> The  `CollectionId` setting is used when `UseLocalModList` is set to **False**.
 
 ```xml
 <Credentials> 
