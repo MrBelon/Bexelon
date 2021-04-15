@@ -32,7 +32,7 @@ git clone https://github.com/Firebels/Bexelon.git
 
 ## Configuration
 
-Before launching the script, you have to edit the **config.xml** file. the configuration file is split into multiple parts.
+Before launching the script, you have to edit the **config.xml** file located in the Bexelon directory. the configuration file is split into multiple parts.
 Here will only be listed the important parameters.
 
 Configure your server profile name (you can leave the default setting) :
