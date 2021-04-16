@@ -44,7 +44,7 @@ Configure your server profile name (you can leave the default setting) :
 </Settings>
 ```
 
-> To set `BattleEye` to **true**, you have to put the BattleEye folder into your server dir (goto "Install BattleEye" section).
+> To set `BattleEye` to **true**, you have to put the BattleEye folder into your server folder.
 
 #### Configure your server paths (**important**). Make sure your path does not end with a backslash : `\` :
 
@@ -138,6 +138,12 @@ The mods concerned will be those that you put in your local mod list or those pr
 ## Server configuration
 
 You have to configure your mods yourself by entering into your server profile folder 🙂
+
+-------------------------
+
+## Collaboration
+
+It would be a pleasure to receive your suggestions, improvements or corrections.
 
 ## License
 
