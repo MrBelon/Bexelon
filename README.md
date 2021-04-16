@@ -20,11 +20,11 @@ You can find the necessary tools for the Bexelon script installation down below 
 
 ## Installation
 
-Bexelon requires [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) 5 or higher to work
+Bexelon requires [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) 5 or higher to work.
 
-If you want to install Bexelon for a new server, create a folder where you want to create your server, start Powershell and clone this repo into the folder that you have created. You can give it the name of the server you want to create.
+If you want to install Bexelon for a new server, create a folder where you want to create your server (you can give it the name of your choice), start Powershell and clone this repo into the folder that you have created.
 
-If you want to install Bexelon in an existing server, just clone the repo at the root of your server.
+If you want to install Bexelon in an existing server, just clone the repo at the root of your server. This will create a folder named `Bexelon`.
 
 ```sh
 git clone https://github.com/Firebels/Bexelon.git
@@ -32,45 +32,34 @@ git clone https://github.com/Firebels/Bexelon.git
 
 ## Configuration
 
-Before launching the script, you have to edit the **config.xml** file located in the Bexelon directory. the configuration file is split into multiple parts.
+Before launching the script, you have to edit the **config.xml** file located in the Bexelon directory. The configuration file is split into multiple parts.
 Here will only be listed the important parameters.
 
 Configure your server profile name (you can leave the default setting) :
+
 ```xml
 <Settings>
 	<Profile>ServerProfile</Profile>		<!-- The Server Profile you want to use (ex: ServerName) -->
 	<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti-Cheat [True/False]? -->
 </Settings>
 ```
-> To set `BattleEye` to **true**, you have to put the BattleEye folder into your server dir (Path/Server config)
 
-Configure your server paths (**important**) :
+> To set `BattleEye` to **true**, you have to put the BattleEye folder into your server dir (goto "Install BattleEye" section).
+
+#### Configure your server paths (**important**). Make sure your path does not end with a backslash : `\` :
 
 ```xml
 <Path>
-	<SteamCMD>C:\steam</SteamCMD>	        <!-- Where is steamcmd.exe ? -->
-	<Server>C:\steam\steamapps\common\DayZServer</Server>		<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
+	<SteamCMD>C:\steam</SteamCMD>	       			<!-- Where is steamcmd.exe ? -->
+	<Server>C:\steam\steamapps\common\DayZServer</Server>	<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
 </Path>
 ```
+
 > You can download steamcmd [here](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip).
 
+<span style="color:red">**BE AWARE!**</span> The script files cannot be stored in the root location path of the DayZ server folder that you have created or your existing server folder, unless they are stored in a subfolder (named Bexelon) of the DayZ server folder.
 
-BE AWARE! The script files cannot be stored in the Root Location Path of the DayZ server folder that you have created or your existing server folder, unless they are stored in a subfile of the DayZ server folder.
-
->	DayZ server Root Location Path ----> C:\steam\steamapps\common\DayZServer
->	
->	DayZ server Subfile Location Path --> C:\steam\steamapps\common\DayZServer\Subfile
-
-
-Make sure your Path does not end with a Back Slash : `\`. 
->	Good exemple --> C:\User\Desktop\File\Subfile
->	
->	Bad exemple ---> C:\User\Desktop\File\ 
->	
->	Good exemple --> C:\User\Desktop\File
-
-
-Configure your mods source :
+#### Configure your mods source :
 
 ```xml
 <Game>
@@ -78,9 +67,14 @@ Configure your mods source :
 	<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
 </Game>
 ```
+
 > If you want a Vanilla server without mods, set `UseLocalModList` to **True** and delete all the **LocalModList.txt** content.
 > Set `UseLocalModList` to **True** for using the **LocalModList.txt** mod list
 > The  `CollectionId` setting is used when `UseLocalModList` is set to **False**.
+
+#### Configure your Steam credentials :
+
+Your Steam credentials are used to download the Steam workshop content.
 
 ```xml
 <Credentials> 
@@ -88,12 +82,15 @@ Configure your mods source :
 	<Password>password</Password>		<!-- Set steam password -->
 </Credentials>
 ```
+
 > Enter your Steam credentials : **For security reasons it is recommended that you create a new Steam account just for your dedicated servers**.
 
 ## The LocalModList.txt
+
 If you have enabled the `UseLocalModList` parameter, you can configure **LocalModList.txt** now. Use the format you want. You can find this file at the root of the script, if not exist create one.
 
 Example :
+
 ```
 ### Standard mods ###
 CF = 1559212036 you can put URL or not (this mod will be loaded)
@@ -104,36 +101,38 @@ Ignore this mod: ~1564026799 (ignored)
 > You can put **EVERYTHING** you want in this file. As long as the file contains a workshop mod ID (10-digit), the script will detect it, **no matter where it is in the file!**
 To comment (and therefore ignore) a mod, add `~` in front of it.
 
-## Installation Zero (Create a new server and go back to square one)
+## Launch the server (or install your new server)
 
-> You can use Bexelon on an existing DayZ server, skip this section and go to the next section.
-
-Go to the Bexelon installation dir launch the **run.ps1** script with Powershell.
+To launch your DayZ server, you just have to start the **run.ps1** script.
 
 ```sh
 ./run.ps1
 ```
 
+- If you launch the script for a new DayZ server installation, the script will install all the necessary files from the server to the path you configured in `Path/Server`. Once it completes this process, it will download the mods you filled in and launch the server.
+
+- If you launch the script for an existing server, the script will only install missing mods and and launch the server.
+
 > Powershell will surely ask you to make a choice regarding the execution policy :
 > https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy
 
-Let the script install your DayZ server...
+## Server restarting
 
-## Launch the server
+If Bexelon is open and your server closes, the script go to the startup process, so it updates server and mods, and the server retart.
 
-To launch your DayZ server, you just have to start the **run.ps1** script
+## Server updating
 
-## DayZ server updating
-
-Your DayZ steam server will check update at each restart. The update will be installed automaticly.
+Your DayZ steam server will check update at each restart. The update will be installed automatically.
 
 ## Mod installation
 
-Add a new mod into the **LocalModList.txt** or into your Steam Workshop Collection (it depends on the `useLocalModList` parameter), and start (or restart) the script. The new mods will be installed on your DayZ server folder, and the .keys files will be pushed into the keys folder automaticly.
+Add a new mod into the **LocalModList.txt** or into your Steam Workshop Collection (it depends on the `useLocalModList` parameter), and start (or restart) the script. The new mods will be installed on your DayZ server folder, and the .keys files will be pushed into the keys folder automatically.
+
+The downloaded mods will take the official name given on steam workshop. This will create a folder into your root server folder named `@mod1` for example.
 
 ## Mod update
 
-Your mods will be updated automatically each time you start the script. 
+Your mods will be updated automatically each time you start the script (or when your server restart). 
 The mods concerned will be those that you put in your local mod list or those present in the workshop collection that you have configured in **config.xml**.
 
 ## Server configuration
