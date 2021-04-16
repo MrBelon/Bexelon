@@ -57,7 +57,7 @@ Configure your server profile name (you can leave the default setting) :
 
 > You can download steamcmd [here](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip).
 
-<span style="color:red">**BE AWARE!**</span> The script files cannot be stored in the root location path of the DayZ server folder that you have created or your existing server folder, unless they are stored in a subfolder (named Bexelon) of the DayZ server folder.
+**BE AWARE!** The script files cannot be stored in the root location path of the DayZ server folder that you have created or your existing server folder, unless they are stored in a subfolder (named Bexelon) of the DayZ server folder.
 
 #### Configure your mods source :
 
@@ -83,7 +83,7 @@ Your Steam credentials are used to download the Steam workshop content.
 </Credentials>
 ```
 
-> Enter your Steam credentials : **For security reasons it is recommended that you create a new Steam account just for your dedicated servers**.
+> Enter your Steam credentials : For security reasons it is recommended that you create a new Steam account just for your dedicated servers.
 
 ## The LocalModList.txt
 
