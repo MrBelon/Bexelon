@@ -79,7 +79,7 @@ function copyFolders
 			Copy-Item -Path "$($WorkshopPath)\$($_.publishedfileid)\" -Destination "$($Config.Path.Server)\`@$($modName)\" -Recurse -Force -PassThru
 		}
 		if(Compare-Object -ReferenceObject $(Get-Content "$($WorkshopPath)\$($_.publishedfileid)\meta.cpp") -DifferenceObject $(Get-Content "$($Config.Path.Server)\`@$($modName)\meta.cpp" -ErrorAction SilentlyContinue)) { 
-			Copy-Item -Path "$($WorkshopPath)\$($_.publishedfileid)\" -Destination "$($Config.Path.Server)\`@$($modName)\" -Recurse -Force -PassThru
+			Copy-Item -Path "$($WorkshopPath)\$($_.publishedfileid)\*" -Destination "$($Config.Path.Server)\`@$($modName)\" -Recurse -Force -PassThru
 		}
 
 		$ModList += $modName
