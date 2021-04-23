@@ -87,7 +87,7 @@ function copyFolders
 	
 	$Collection | ForEach-Object { Get-ChildItem -Path "$($WorkshopPath)\$($_.publishedfileid)" -Filter *.bikey -Recurse -File | Copy-Item -Destination "..\keys\" -PassThru } #Copy Keys
 	
-	Write-Host "Loaded mods: " -ForegroundColor Green -NoNewline; Write-Host $($ModList -join ', ') -ForegroundColor Blue
+	Write-Host "Loaded $($ModList.Length) mod(s): " -ForegroundColor Green -NoNewline; Write-Host $($ModList -join ', ') -ForegroundColor Blue
 	LogWrite "Loaded $($ModList.Length) mod(s): $($ModList -join ', ')" White False
 
 	sendHooks
