@@ -41,7 +41,6 @@ function startServer # Start the server
 {
 	LogWrite "Starting DayZ Server using Bexelon (thank you :D)..."
 
-	Set-Location -Path ../
 	Start-Process -FilePath "..\DayZServer_x64.exe" -ArgumentList "-instanceId=1 -config=serverDZ.cfg -profiles=$($Config.Settings.Profile) -port=2302 `"-mod=@$($ModList -join ';@')`" -cpuCount=$($Config.Settings.CPU) -noFilePatching -dologs -adminlog -freezecheck"
 
 	if($Config.Settings.BattleEye -eq 'True') { startBec } checkServer # Start BattleEye if enabled in the config
