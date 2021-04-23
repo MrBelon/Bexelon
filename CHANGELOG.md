@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.2] - 2020-04-23
+### Changed
+- Call steamcmd installation before checking mods
+
+### Removed
+- "Set-Location" powershell function
+
 ## [1.6.0] - 2020-04-23
 ### Added
 - Changelog file.

@@ -1,6 +1,6 @@
 #################################################################
 # Project	:  Bexelon (https://github.com/Firebels/Bexelon)	#
-# Version	:  Beta 1.6.0 										#
+# Version	:  1.6.2	 										#
 # Developer :  Robin Belon (belon.rbn@gmail.com)				#
 # Server	:  DayZ (https://www.survivalistes.fr)				#
 # Important	:  Configure "config.xml" before running this		#
@@ -92,20 +92,8 @@ function copyFolders
 	sendHooks
 }
 
-function noSteamCmd
-{
-	LogWrite "Downloading and installing steamcmd..." Red
-	$tempArchive = "./steamcmd/steamcmd.temp.zip"
-	Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip" -OutFile $($tempArchive)
-	LogWrite "Extracting steamcmd. Please wait a few seconds..." Red
-	Expand-Archive -Path $($tempArchive) -DestinationPath "./steamcmd/"
-	Remove-Item $tempArchive
-}
-
 function dlMods 
-{
-	if(!$(Test-Path steamcmd.exe -PathType Leaf)) { noSteamCmd }
-	
+{	
 	$Collection | ForEach-Object { $WS_Collection = "$($WS_Collection) +workshop_download_item 221100 $($_.publishedfileid) " }
 	
 	Start-Process -FilePath steamcmd\steamcmd.exe -ArgumentList "+login $($Config.Credentials.Username) $($Config.Credentials.Password) +force_install_dir ../../ +app_update $($GameBranch) $($WS_Collection) validate +quit"
@@ -124,8 +112,22 @@ function dlMods
 	copyFolders
 }
 
+function noSteamCmd
+{
+	LogWrite "Downloading and installing steamcmd..." Red
+	$tempArchive = "./steamcmd/steamcmd.temp.zip"
+	Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip" -OutFile $($tempArchive)
+	LogWrite "Extracting steamcmd. Please wait a few seconds..." Red
+	Expand-Archive -Path $($tempArchive) -DestinationPath "./steamcmd/"
+	Remove-Item $tempArchive
+
+	getCollection
+}
+
 function getCollection # Get the modlist from the API (Steam Workshop Collection)
 {
+	if(!$(Test-Path steamcmd.exe -PathType Leaf)) { noSteamCmd }
+
 	if($Config.Mods.UseLocalModList -eq 'True') {
 		# Get collection from local file
 		$Collection = @()
