@@ -14,9 +14,9 @@ Bexelon is a Powershell script created to install your DayZ server and auto-upda
 
 You can find the necessary tools for the Bexelon script installation down below :
 
-- [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) - Terminal
-- [Git](https://git-scm.com/) - Git version control system
-- [steamcmd.exe](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD) - The Steam Console Client
+- [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview) - Terminal (required to run this script)
+- [Git](https://git-scm.com/) - Git version control system (not required if you download this repo as zip)
+- [steamcmd.exe](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD) - The Steam Console Client (not required now !)
 
 ## Installation
 
@@ -46,17 +46,6 @@ Configure your server profile name (you can leave the default setting) :
 
 > To set `BattleEye` to **true**, you have to put the BattleEye folder into your server folder.
 
-#### Configure your server paths (**important**). Make sure your path does not end with a backslash : `\` :
-
-```xml
-<Path>
-	<SteamCMD>C:\steam</SteamCMD>	       			<!-- Where is steamcmd.exe ? -->
-	<Server>C:\steam\steamapps\common\DayZServer</Server>	<!-- Path to Game Server (ex: C:\servers\DayzServer) -->
-</Path>
-```
-
-> You can download steamcmd [here](https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip).
-
 **BE AWARE!** The script files cannot be stored in the root location path of the DayZ server folder that you have created or your existing server folder, unless they are stored in a subfolder (named Bexelon) of the DayZ server folder.
 
 #### Configure your mods source :
@@ -68,9 +57,9 @@ Configure your server profile name (you can leave the default setting) :
 </Game>
 ```
 
-> If you want a Vanilla server without mods, set `UseLocalModList` to **True** and delete all the **LocalModList.txt** content.
-> Set `UseLocalModList` to **True** for using the **LocalModList.txt** mod list
-> The  `CollectionId` setting is used when `UseLocalModList` is set to **False**.
+> If you want a Vanilla server without mods, set `UseLocalModList` to **True** and delete all of the **LocalModList.txt** content.
+> Set `UseLocalModList` to **True** to use the **LocalModList.txt** mod list.
+> The  `CollectionId` setting is used when `UseLocalModList` is set to **False**. This will detect all mods in your workshop collection.
 
 #### Configure your Steam credentials :
 

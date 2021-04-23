@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
 	<Settings>
-		<Profile>ServerProfile</Profile>		<!-- The Server Profile you want to use (ex: ServerName) -->
+		<Profile>ServerProfile</Profile>		<!-- The Server Profile you want to use -->
 		<CPU>4</CPU>							<!-- Number of CPU you want to use for your server -->
-		<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti Cheat ? -->
+		<BattleEye>False</BattleEye>			<!-- Enable BattleEye Anti Cheat ? [True/False] -->
 	</Settings>
-	<Path>
-		<SteamCMD>C:\steam</SteamCMD>			<!-- SteamCMD Path (ex: C:\Steam) -->
-		<Server>C:\Servers\DayZ</Server>	<!-- Config path to Game Server (ex: C:\Steam\steamapps\common\DayzServer) -->
-	</Path>
 	<Mods>
 		<UseLocalModList>True</UseLocalModList>	<!-- Set True to use local mod list (LocalModList.txt) -->
-		<CollectionId>2376686769</CollectionId>		<!-- Set Steam Workshop Collection ID (If API List) -->
+		<CollectionId>2376686769</CollectionId>	<!-- Set Steam Workshop Collection ID (If API List) -->
 	</Mods>
 	<!-- Enter your Steam Credentials : For security reasons it is recommended that you create a new Steam account just for your dedicated servers -->
 	<Credentials> 
-		<Username>username</Username>		
-		<Password>password</Password>
+		<Username>username</Username>			<!-- Steam username -->
+		<Password>password</Password>			<!-- Steam password -->
 	</Credentials>
 	<Hooks>
 		<!--
